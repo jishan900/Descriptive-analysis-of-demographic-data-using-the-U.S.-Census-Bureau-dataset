@@ -222,6 +222,17 @@ ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region
 
 
 
+#..................3: Bivariate correlation
+
+
+
+plot <- cor(data[ data$Year == 2023, 6:11], method = "pearson")
+colnames(plot) <- c("Median age for both sexes", "Median age for females", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
+rownames(plot) <- c("Median age for both sexes", "Median age for females", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
+corrplot(plot, method = "number", type = "upper", mar=c(0,0,0,0), tl.col = "black", tl.srt = 45)
+
+
+
 
 #.........4: comparing 2003 with 2023
 
