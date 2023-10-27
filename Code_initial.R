@@ -190,13 +190,60 @@ plot12 <- ggplot(mor.females, aes(Mortality, Region, fill=Region)) + geom_boxplo
 grid.arrange(plot11,plot12, nrow=1,ncol=2)
 
 
+#................2: Compare the detailed difference between the regions Europe and Africa. 
+#Are the values of the individual variables comparatively homogeneous within the individual subregions and heterogeneous between different subregions? 
+#To answer this question, first analyse the variability of the values within the individual subregions and then compare the measures of central tendency of the individual variables between different subregions.
+
+#Compare the detailed difference between the regions Europe and Africa.
+#Boxplot for Median.age..both.sexes
+data_mor_1 <- data.frame(Region = data[ data$Year == 2023 & data$Region == 'Europe', 'Region'],
+                       Subregion = data[ data$Year == 2023 & data$Region == 'Europe', 'Subregion'],
+                       Median.age..both.sexes = data[ data$Year == 2023 & data$Region == 'Europe', 'Median.age..both.sexes'])
+
+data_mor_1 <- data_mor_1[order(data_mor_1$Region, data_mor_1$Subregion), ]
+data_mor_1$Subregion <- factor(data_mor_1$Subregion, levels = rev(unique(data_mor_1$Subregion)), ordered = TRUE)
+ggplot(data_mor_1, aes(Median.age..both.sexes, Subregion, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Subregions")
 
 
 
 
 
 
+#Boxplot for Infant.Mortality.Rate..Both.Sexes
+data_exp <- data.frame(Region = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Region'],
+                       Subregion = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Subregion'],
+                       Life.Expectancy.at.Birth.Both.Sexes = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Life.Expectancy.at.Birth..Both.Sexes'])
 
+data_exp <- data_exp[order(data_exp$Region, data_exp$Subregion), ]
+data_exp$Subregion <- factor(data_exp$Subregion, levels = rev(unique(data_exp$Subregion)), ordered = TRUE)
+ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region)) + geom_boxplot() + coord_flip()+ labs(y= "Subregions")
+
+
+
+
+
+
+#.........4: comparing 2003 with 2023
+
+Country <- data$Country
+Subregion <- data$Subregion
+
+#Median.age..both.sexes 2003 vs 2023
+data_fert <- dcast(data, Country + Subregion  + Region ~ factor(Year), value.var="Median.age..both.sexes")
+data_fert <- data_fert[order(data_fert$Region, data_fert$Subregion), ]
+data_fert$Subregion <- factor(data_fert$Subregion, levels = rev(unique(data_fert$Subregion)), ordered = TRUE)
+ggplot(data=data_fert, mapping = aes(x=`2003`, y=`2023`)) +
+  geom_point() + facet_wrap(. ~ Subregion) + 
+  geom_abline()
+
+
+#Infant.Mortality.Rate..Both.Sexes 2003 vs 2023
+data_life_exp <- dcast(data, Country + Subregion + Region ~ factor(Year), value.var="Infant.Mortality.Rate..Both.Sexes")
+data_life_exp <- data_life_exp[order(data_life_exp$Region, data_life_exp$Subregion), ]
+data_life_exp$Subregion <- factor(data_life_exp$Subregion, levels = rev(unique(data_life_exp$Subregion)), ordered = TRUE)
+ggplot(data=data_life_exp, mapping = aes(x=`2003`,y=`2023`)) +
+  geom_point() + facet_wrap(. ~ Subregion) + 
+  geom_abline()
 
 
 
