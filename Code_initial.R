@@ -8,7 +8,10 @@ library(reshape2)
 #import dataset
 dataset <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv")
 head(dataset)
-
+dataset
+nrow(dataset)
+ncol(dataset)
+summary(dataset)
 #................1: Frequency distribution of the variables
 
 #Histogram of Median.age..both.sexes in 2023
@@ -117,6 +120,51 @@ legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, 
 
 
 #----- 1: Continue: Represented region wise boxplot
+data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv", header = TRUE)
+head(data)
+nrow(data)
+ncol(data)
+summary(data)
+# Step 2: Choose the column to convert
+columns_to_convert <- c("Median.age..both.sexes", "Median.age..females", "Median.age..males", "Total.Fertility.Rate", "Infant.Mortality.Rate..Both.Sexes", "Infant.Mortality.Rate..Males", "Infant.Mortality.Rate..Females")
+
+
+# Step 3: Convert the chosen columns to integers using lapply
+data[columns_to_convert] <- lapply(data[columns_to_convert], as.integer)
+
+# Step 4: Save the modified data frame as a new CSV file
+write.csv(data, "D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv", row.names = FALSE)
+summary(data)
+
+#Boxplot for Median.age..both.sexes
+life.exp.both <- data.frame(Region = data[ data$Year == 2023, 'Region'],
+                            life.exp = data[ data$Year == 2023, 'Median.age..both.sexes'])
+
+life.exp.both <- life.exp.both[order(life.exp.both$Region), ]
+plot8 <- ggplot(life.exp.both, aes(life.exp, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Life expectancy at birth in both sexes (new: Median.age..both.sexes)")
+
+#Boxplot for Under.Age.5.Mortality..Both.Sexes
+mor.both <- data.frame(Region = data[ data$Year == 2023, 'Region'],
+                       Mortality = data[ data$Year == 2023, 'Infant.Mortality.Rate..Both.Sexes'])
+
+mor.both<- mor.both[order(mor.both$Region), ]
+plot7 <- ggplot(mor.both, aes(Mortality, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Under age 5 mortality in both sexes (new: Infant.Mortality.Rate..Both.Sexes)")
+
+grid.arrange(plot8,plot7, nrow=1,ncol=2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+#---------------------------------------------------------------------------------------------------------------
 Median.age.males_2023 <- as.numeric(Median.age.males_2023)
 class(Median.age.males_2023)
 
@@ -128,12 +176,19 @@ class(Infant.Mortality.Rate.Males_2023)
 
 
 #Boxplot for Median.age..males
-Median.age.males_2023 <- as.numeric(Median.age.males_2023)
-Median.age.males_2023 <- data.frame(Region = dataset[ dataset$Year == 2023, 'Region'],
+Median.age.males_20231 <- dataset$Median.age..males[dataset$Year == 2023]
+class(Median.age.males_20231)
+Median.age.males_20231 <- as.numeric(Median.age.males_20231)
+class(Median.age.males_20231)
+Median.age.males_20231 <- median(Median.age.males_20231, na.rm = T)
+
+
+
+Median.age.males_20231 <- data.frame(Region = dataset[ dataset$Year == 2023, 'Region'],
                             median.age = dataset[ dataset$Year == 2023, 'Median.age..males'])
 
-Median.age.males_2023 <- Median.age.males_2023[order(Median.age.males_2023$Region), ]
-plot <- ggplot(Median.age.males_2023, aes(median.age, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Median age in both sexes")
+Median.age.males_20231 <- Median.age.males_20231[order(Median.age.males_2023$Region), ]
+plot <- ggplot(Median.age.males_20231, aes(median.age, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Median age in both sexes")
 
 
 #Boxplot for Infant.Mortality.Rate..Males
