@@ -226,10 +226,22 @@ ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region
 
 
 
-plot <- cor(data[ data$Year == 2023, 6:11], method = "pearson")
-colnames(plot) <- c("Median age for both sexes", "Median age for females", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
-rownames(plot) <- c("Median age for both sexes", "Median age for females", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
-corrplot(plot, method = "number", type = "upper", mar=c(0,0,0,0), tl.col = "black", tl.srt = 45)
+data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv")
+
+# Filter the data for the year 2023 and the relevant columns
+subset_data <- data[data$Year == 2023, 5:11]
+
+# Calculate the correlation matrix without NA values
+plot <- cor(subset_data, method = "pearson", use = "pairwise.complete.obs")
+
+# Set column and row names
+colnames(plot) <- c("Median age for both sexes", "Median age for females", "Total fertility rate", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
+rownames(plot) <- c("Median age for both sexes", "Median age for females", "Total fertility rate", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
+
+# Visualize the correlation matrix
+library(corrplot)
+corrplot(plot, method = "number", type = "upper", mar = c(0, 0, 0, 0), tl.col = "black", tl.srt = 45)
+
 
 
 
