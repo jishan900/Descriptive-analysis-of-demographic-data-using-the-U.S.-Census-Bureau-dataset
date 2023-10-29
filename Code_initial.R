@@ -275,10 +275,7 @@ ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region
 
 #..................3: Bivariate correlation
 
-
-
 # For Integer Data
-
 Median.age.both_2023_num <- as.integer(Median.age.both_2023)
 class(Median.age.both_2023_num)
 Median.age.females_2023 <- as.integer(Median.age.females_2023)
