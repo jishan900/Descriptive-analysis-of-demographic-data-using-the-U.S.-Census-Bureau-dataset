@@ -274,3 +274,17 @@ ggplot(data=data_life_exp, mapping = aes(x=`2003`,y=`2023`)) +
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
