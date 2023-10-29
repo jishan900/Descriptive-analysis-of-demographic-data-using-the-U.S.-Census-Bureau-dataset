@@ -339,9 +339,13 @@ corrplot(cor_matrix_spearman, method = "color", type = "upper",
          tl.cex = 0.8,
          title = "Spearman Correlation Heatmap")
 
+######################################################################################
+data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv", header = TRUE)
+columns_to_convert <- c("Median.age..both.sexes", "Median.age..females", "Median.age..males", "Total.Fertility.Rate", "Infant.Mortality.Rate..Both.Sexes", "Infant.Mortality.Rate..Males", "Infant.Mortality.Rate..Females")
+data[columns_to_convert] <- lapply(data[columns_to_convert], as.integer)
+write.csv(data, "D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv", row.names = FALSE)
 
 #.........4: comparing 2003 with 2023
-
 Country <- data$Country
 Subregion <- data$Subregion
 
@@ -361,10 +365,3 @@ data_life_exp$Subregion <- factor(data_life_exp$Subregion, levels = rev(unique(d
 ggplot(data=data_life_exp, mapping = aes(x=`2003`,y=`2023`)) +
   geom_point() + facet_wrap(. ~ Subregion) + 
   geom_abline()
-
-
-
-
-
-
-
