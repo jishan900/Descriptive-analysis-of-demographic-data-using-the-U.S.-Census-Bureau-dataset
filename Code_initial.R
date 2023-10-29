@@ -120,76 +120,127 @@ legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, 
 
 
 #----- 1: Continue: Represented region wise boxplot
-data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv", header = TRUE)
-head(data)
-nrow(data)
-ncol(data)
-summary(data)
-# Step 2: Choose the column to convert
-columns_to_convert <- c("Median.age..both.sexes", "Median.age..females", "Median.age..males", "Total.Fertility.Rate", "Infant.Mortality.Rate..Both.Sexes", "Infant.Mortality.Rate..Males", "Infant.Mortality.Rate..Females")
 
+# Boxplot for Median.age..both.sexes
+Median.age.both_2023 <- dataset$Median.age..both.sexes[dataset$Year == 2023]
+class(Median.age.both_2023)
+Median.age.both_2023_1 <- as.integer(Median.age.both_2023, na.rm = TRUE)
+class(Median.age.both_2023_1)
 
-# Step 3: Convert the chosen columns to integers using lapply
-data[columns_to_convert] <- lapply(data[columns_to_convert], as.integer)
+Median.age.both_2023_11 <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  life.exp = Median.age.both_2023_1
+)
 
-# Step 4: Save the modified data frame as a new CSV file
-write.csv(data, "D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv", row.names = FALSE)
-summary(data)
+Median.age.both_2023_11 <- Median.age.both_2023_11[order(Median.age.both_2023_11$Region), ]
 
-#Boxplot for Median.age..both.sexes
-life.exp.both <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                            life.exp = data[ data$Year == 2023, 'Median.age..both.sexes'])
+plot8 <- ggplot(Median.age.both_2023_11, aes(x = life.exp, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Life expectancy at birth in both sexes (new: Median.age..both.sexes)")
 
-life.exp.both <- life.exp.both[order(life.exp.both$Region), ]
-plot8 <- ggplot(life.exp.both, aes(life.exp, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Life expectancy at birth in both sexes (new: Median.age..both.sexes)")
+# Boxplot for Infant.Mortality.Rate..Both.Sexes
+Infant.Mortality.Rate_2023 <- dataset$Infant.Mortality.Rate..Both.Sexes[dataset$Year == 2023]
+class(Infant.Mortality.Rate_2023)
+Infant.Mortality.Rate_2023 <- as.integer(Infant.Mortality.Rate_2023, na.rm = TRUE)
+class(Infant.Mortality.Rate_2023)
 
-#Boxplot for Infant.Mortality.Rate..Both.Sexes
-mor.both <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                       Mortality = data[ data$Year == 2023, 'Infant.Mortality.Rate..Both.Sexes'])
+mor.both <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  Mortality = Infant.Mortality.Rate_2023
+)
 
-mor.both<- mor.both[order(mor.both$Region), ]
-plot7 <- ggplot(mor.both, aes(Mortality, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Under age 5 mortality in both sexes (new: Infant.Mortality.Rate..Both.Sexes)")
+mor.both <- mor.both[order(mor.both$Region), ]
 
-grid.arrange(plot8,plot7, nrow=1,ncol=2)
+plot7 <- ggplot(mor.both, aes(x = Mortality, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Under age 5 mortality in both sexes (new: Infant.Mortality.Rate..Both.Sexes)")
 
+library(gridExtra)
+grid.arrange(plot8, plot7, nrow = 1, ncol = 2)
+#---------------------------------------------------------------
 
-#--------------------------
-#Boxplot for Median.age..males
-life.exp.males <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                             life.exp = data[ data$Year == 2023, 'Median.age..males'])
+# Boxplot for Median.age..males
+Median.age..males_2023 <- dataset$Median.age..males[dataset$Year == 2023]
+class(Median.age..males_2023)
+Median.age.males_2023_11 <- as.integer(Median.age..males_2023, na.rm = TRUE)
+class(Median.age.males_2023_11)
 
-life.exp.males <- life.exp.males[order(life.exp.males$Region), ]
-plot9 <- ggplot(life.exp.males, aes(life.exp, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Life expectancy at birth in males (New: Median.age..males)")
+Median.age.males_2023_11 <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  life.exp1 = Median.age.males_2023_11
+)
 
+Median.age.males_2023_11 <- Median.age.males_2023_11[order(Median.age.males_2023_11$Region), ]
 
-#Boxplot for Median.age..females
-life.expectancy.females <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                                      Mortality = data[ data$Year == 2023, 'Median.age..females'])
+plot1 <- ggplot(Median.age.males_2023_11, aes(x = life.exp1, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Life expectancy at birth in males (New: Median.age..males)")
 
-life.expectancy.females<- life.expectancy.females[order(life.expectancy.females$Region), ]
-plot10 <- ggplot(life.expectancy.females, aes(Mortality, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Life expectancy at birth in females (New:Median.age..females)")
+# Boxplot for Median.age..females
+Median.age..females_2023 <- dataset$Median.age..females[dataset$Year == 2023]
+class(Median.age..females_2023)
+Median.age.females_2023_11 <- as.integer(Median.age..females_2023, na.rm = TRUE)
+class(Median.age.females_2023_11)
 
-grid.arrange(plot9,plot10, nrow=1,ncol=2)
+mor.both1 <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  Mortality = Median.age.females_2023_11
+)
 
+mor.both1 <- mor.both1[order(mor.both1$Region), ]
+
+plot2 <- ggplot(mor.both1, aes(x = Mortality, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Life expectancy at birth in females (New:Median.age..females)")
+
+library(gridExtra)
+grid.arrange(plot1, plot2, nrow = 1, ncol = 2)
+#---------------------------------------------------------------
 #--------------------------
 #Boxplot for Infant.Mortality.Rate..Males
-mor.males <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                        Mortality = data[ data$Year == 2023, 'Infant.Mortality.Rate..Males'])
+Infant.Mortality.Rate.Males_2023 <- dataset$Infant.Mortality.Rate..Males[dataset$Year == 2023]
+class(Infant.Mortality.Rate.Males_2023)
+Infant.Mortality.Rate.Males_2023_1 <- as.integer(Infant.Mortality.Rate.Males_2023, na.rm = TRUE)
+class(Infant.Mortality.Rate.Males_2023_1)
 
-mor.males <- mor.males[order(mor.males$Region), ]
-plot11 <- ggplot(mor.males, aes(Mortality, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Under age 5 mortality in males(New:Infant.Mortality.Rate..Males)")
+Infant.Mortality.Rate.Males_2023_11 <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  life.exp1 = Infant.Mortality.Rate.Males_2023_1
+)
 
+Infant.Mortality.Rate.Males_2023_11 <- Infant.Mortality.Rate.Males_2023_11[order(Infant.Mortality.Rate.Males_2023_11$Region), ]
+
+plot3 <- ggplot(Infant.Mortality.Rate.Males_2023_11, aes(x = life.exp1, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Under age 5 mortality in males(New:Infant.Mortality.Rate..Males)")
 
 #Boxplot for Infant.Mortality.Rate..Females
-mor.females <- data.frame(Region = data[ data$Year == 2023, 'Region'],
-                          Mortality = data[ data$Year == 2023, 'Infant.Mortality.Rate..Females'])
+Infant.Mortality.Rate..Females_2023 <- dataset$Infant.Mortality.Rate..Females[dataset$Year == 2023]
+class(Infant.Mortality.Rate..Females_2023)
+Infant.Mortality.Rate..Females_2023_1 <- as.integer(Infant.Mortality.Rate..Females_2023, na.rm = TRUE)
+class(Infant.Mortality.Rate..Females_2023_1)
 
-mor.females.females<- mor.females[order(mor.females$Region), ]
-plot12 <- ggplot(mor.females, aes(Mortality, Region, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Regions", x= "Under age 5 mortality in females (New:Infant.Mortality.Rate..Females)")
+mor.both11 <- data.frame(
+  Region = dataset$Region[dataset$Year == 2023],
+  Mortality = Infant.Mortality.Rate..Females_2023_1
+)
 
-grid.arrange(plot11,plot12, nrow=1,ncol=2)
+mor.both11 <- mor.both11[order(mor.both11$Region), ]
 
+plot4 <- ggplot(mor.both11, aes(x = Mortality, y = Region, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Regions", x = "Under age 5 mortality in females (New:Infant.Mortality.Rate..Females)")
 
+library(gridExtra)
+grid.arrange(plot3, plot4, nrow = 1, ncol = 2)
+
+#...................................................................................................................
 #................2: Compare the detailed difference between the regions Europe and Africa. 
 #Are the values of the individual variables comparatively homogeneous within the individual subregions and heterogeneous between different subregions? 
 #To answer this question, first analyse the variability of the values within the individual subregions and then compare the measures of central tendency of the individual variables between different subregions.
@@ -267,20 +318,6 @@ data_life_exp$Subregion <- factor(data_life_exp$Subregion, levels = rev(unique(d
 ggplot(data=data_life_exp, mapping = aes(x=`2003`,y=`2023`)) +
   geom_point() + facet_wrap(. ~ Subregion) + 
   geom_abline()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
