@@ -277,24 +277,67 @@ ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region
 
 
 
-data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv")
+# For Integer Data
 
-# Filter the data for the year 2023 and the relevant columns
-subset_data <- data[data$Year == 2023, 5:11]
+Median.age.both_2023_num <- as.integer(Median.age.both_2023)
+class(Median.age.both_2023_num)
+Median.age.females_2023 <- as.integer(Median.age.females_2023)
+class(Median.age.females_2023)
+Median.age.males_2023 <- as.integer(Median.age.males_2023)
+class(Median.age.males_2023)
+Infant.Mortality.Rate.Both.Sexes_2023 <- as.integer(Infant.Mortality.Rate.Both.Sexes_2023)
+class(Infant.Mortality.Rate.Both.Sexes_2023)
+Infant.Mortality.Rate.Males_2023 <- as.integer(Infant.Mortality.Rate.Males_2023)
+class(Infant.Mortality.Rate.Males_2023)
+Infant.Mortality.Rate.Females_2023 <- as.integer(Infant.Mortality.Rate.Females_2023)
+class(Infant.Mortality.Rate.Females_2023)
 
-# Calculate the correlation matrix without NA values
-plot <- cor(subset_data, method = "pearson", use = "pairwise.complete.obs")
 
-# Set column and row names
-colnames(plot) <- c("Median age for both sexes", "Median age for females", "Total fertility rate", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
-rownames(plot) <- c("Median age for both sexes", "Median age for females", "Total fertility rate", "Median age for males", "Infant mortality rate for both sexes", "Infant mortality rate for males", "Infant mortality rate for females")
 
-# Visualize the correlation matrix
+#install.packages("corrplot")
 library(corrplot)
-corrplot(plot, method = "number", type = "upper", mar = c(0, 0, 0, 0), tl.col = "black", tl.srt = 45)
+# Create a data frame with your variables
+correlation_data <- data.frame(
+  Median.Both = Median.age.both_2023_num,
+  Median.Females = Median.age.females_2023,
+  Median.Males = Median.age.males_2023,
+  Infant.Both = Infant.Mortality.Rate.Both.Sexes_2023,
+  Infant.Males = Infant.Mortality.Rate.Males_2023,
+  Infant.Females = Infant.Mortality.Rate.Females_2023
+)
+
+# Calculate the Pearson correlation matrix
+cor_matrix <- cor(correlation_data, use = "complete.obs")
+# Create the Pearson correlation heatmap
+corrplot(cor_matrix, method = "color", type = "upper", 
+         tl.col = "black", tl.srt = 45, 
+         addCoef.col = "black", 
+         tl.cex = 0.8, 
+         title = "Pearson Correlation Heatmap")
 
 
+# Load the corrplot library if not already loaded
+library(corrplot)
 
+# Create a data frame with your variables
+correlation_data <- data.frame(
+  Median.Both = Median.age.both_2023_num,
+  Median.Females = Median.age.females_2023,
+  Median.Males = Median.age.males_2023,
+  Infant.Both = Infant.Mortality.Rate.Both.Sexes_2023,
+  Infant.Males = Infant.Mortality.Rate.Males_2023,
+  Infant.Females = Infant.Mortality.Rate.Females_2023
+)
+
+# Calculate the Spearman correlation matrix
+cor_matrix_spearman <- cor(correlation_data, method = "spearman", use = "complete.obs")
+
+# Create the Spearman correlation heatmap
+corrplot(cor_matrix_spearman, method = "color", type = "upper",
+         tl.col = "black", tl.srt = 45,
+         addCoef.col = "black",
+         tl.cex = 0.8,
+         title = "Spearman Correlation Heatmap")
 
 
 #.........4: comparing 2003 with 2023
