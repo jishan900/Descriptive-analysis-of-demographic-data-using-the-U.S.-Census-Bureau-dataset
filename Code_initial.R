@@ -19,7 +19,7 @@ Median.age.both_2023 <- dataset$Median.age..both.sexes[dataset$Year == 2023]
 class(Median.age.both_2023)
 Median.age.both_2023 <- as.numeric(Median.age.both_2023)
 class(Median.age.both_2023)
-hist(Median.age.both_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,100) , ylim = c(0,35), xlab = "Median age for both sexes in 2023",  breaks = 15 )
+hist(Median.age.both_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,100) , ylim = c(0,35), xlab = "Median age for both sexes in 2023",  ylab = "density", breaks = 15 )
 mean_value <- mean(Median.age.both_2023, na.rm = T)
 print(mean_value)
 median_value <- median(Median.age.both_2023, na.rm = T)
@@ -34,7 +34,7 @@ Median.age.females_2023 <- dataset$Median.age..females[dataset$Year == 2023]
 class(Median.age.females_2023)
 Median.age.females_2023 <- as.numeric(Median.age.females_2023)
 class(Median.age.females_2023)
-hist(Median.age.females_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,100) , ylim = c(0,50), xlab = "Median age for females in 2023",  breaks = 15 )
+hist(Median.age.females_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,100) , ylim = c(0,50), xlab = "Median age for females in 2023",  ylab = "density", breaks = 15 )
 mean_value1 <- mean(Median.age.females_2023, na.rm = T)
 print(mean_value1)
 median_value1 <- median(Median.age.females_2023, na.rm = T)
@@ -49,7 +49,7 @@ Median.age.males_2023 <- dataset$Median.age..males[dataset$Year == 2023]
 class(Median.age.males_2023)
 Median.age.males_2023 <- as.numeric(Median.age.males_2023)
 class(Median.age.males_2023)
-hist(Median.age.males_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,70) , ylim = c(0,25), xlab = "Median age for males in 2023",  breaks = 15 )
+hist(Median.age.males_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,70) , ylim = c(0,25), xlab = "Median age for males in 2023",  ylab = "density",breaks = 15 )
 mean_value2 <- mean(Median.age.males_2023, na.rm = T)
 print(mean_value2)
 median_value2 <- median(Median.age.males_2023, na.rm = T)
@@ -64,7 +64,7 @@ Total.Fertility.Rate_2023 <- dataset$Total.Fertility.Rate[dataset$Year == 2023]
 class(Total.Fertility.Rate_2023)
 Total.Fertility.Rate_2023 <- as.numeric(Total.Fertility.Rate_2023)
 class(Total.Fertility.Rate_2023)
-hist(Total.Fertility.Rate_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,10) , ylim = c(0,120), xlab = "Total fertility rate in 2023",  breaks = 15 )
+hist(Total.Fertility.Rate_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,10) , ylim = c(0,120), xlab = "Total fertility rate in 2023",  ylab = "density", breaks = 15 )
 mean_value3 <- mean(Total.Fertility.Rate_2023, na.rm = T)
 print(mean_value3)
 median_value3 <- median(Total.Fertility.Rate_2023, na.rm = T)
@@ -79,7 +79,7 @@ Infant.Mortality.Rate.Both.Sexes_2023 <- dataset$Infant.Mortality.Rate..Both.Sex
 class(Infant.Mortality.Rate.Both.Sexes_2023)
 Infant.Mortality.Rate.Both.Sexes_2023 <- as.numeric(Infant.Mortality.Rate.Both.Sexes_2023)
 class(Infant.Mortality.Rate.Both.Sexes_2023)
-hist(Infant.Mortality.Rate.Both.Sexes_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,110) , ylim = c(0,70), xlab = "Infant mortality rate for both sexes in 2023",  breaks = 15 )
+hist(Infant.Mortality.Rate.Both.Sexes_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,110) , ylim = c(0,70), xlab = "Infant mortality rate for both sexes in 2023",  ylab = "density", breaks = 15 )
 mean_value4 <- mean(Infant.Mortality.Rate.Both.Sexes_2023, na.rm = T)
 print(mean_value4)
 median_value4 <- median(Infant.Mortality.Rate.Both.Sexes_2023, na.rm = T)
@@ -94,7 +94,7 @@ Infant.Mortality.Rate.Males_2023 <- dataset$Infant.Mortality.Rate..Males[dataset
 class(Infant.Mortality.Rate.Males_2023)
 Infant.Mortality.Rate.Males_2023 <- as.numeric(Infant.Mortality.Rate.Males_2023)
 class(Infant.Mortality.Rate.Males_2023)
-hist(Infant.Mortality.Rate.Males_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,110) , ylim = c(0,55), xlab = "Total fertility rate in 2023",  breaks = 15 )
+hist(Infant.Mortality.Rate.Males_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,110) , ylim = c(0,55), ylab = "density", xlab = "Infant mortality rate for males in 2023",  breaks = 15 )
 mean_value5 <- mean(Infant.Mortality.Rate.Males_2023, na.rm = T)
 print(mean_value5)
 median_value5 <- median(Infant.Mortality.Rate.Males_2023, na.rm = T)
@@ -109,7 +109,7 @@ Infant.Mortality.Rate.Females_2023 <- dataset$Infant.Mortality.Rate..Females[dat
 class(Infant.Mortality.Rate.Females_2023)
 Infant.Mortality.Rate.Females_2023 <- as.numeric(Infant.Mortality.Rate.Females_2023)
 class(Infant.Mortality.Rate.Females_2023)
-hist(Infant.Mortality.Rate.Females_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,90) , ylim = c(0,75), xlab = "Total fertility rate in 2023",  breaks = 15 )
+hist(Infant.Mortality.Rate.Females_2023, col = 'green', main = "", freq = TRUE, xlim =c(0,90) , ylim = c(0,75), ylab = "density", xlab = "Infant mortality rate for females in 2023",  breaks = 15 )
 mean_value6 <- mean(Infant.Mortality.Rate.Females_2023, na.rm = T)
 print(mean_value6)
 median_value6 <- median(Infant.Mortality.Rate.Females_2023, na.rm = T)
@@ -137,7 +137,7 @@ Median.age.both_2023_11 <- Median.age.both_2023_11[order(Median.age.both_2023_11
 plot8 <- ggplot(Median.age.both_2023_11, aes(x = life.exp, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Life expectancy at birth in both sexes (new: Median.age..both.sexes)")
+  labs(y = "Regions", x = "Median age for both sexes")
 
 # Boxplot for Infant.Mortality.Rate..Both.Sexes
 Infant.Mortality.Rate_2023 <- dataset$Infant.Mortality.Rate..Both.Sexes[dataset$Year == 2023]
@@ -155,7 +155,7 @@ mor.both <- mor.both[order(mor.both$Region), ]
 plot7 <- ggplot(mor.both, aes(x = Mortality, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Under age 5 mortality in both sexes (new: Infant.Mortality.Rate..Both.Sexes)")
+  labs(y = "Regions", x = "Infant mortality rate for both sexes")
 
 library(gridExtra)
 grid.arrange(plot8, plot7, nrow = 1, ncol = 2)
@@ -177,7 +177,7 @@ Median.age.males_2023_11 <- Median.age.males_2023_11[order(Median.age.males_2023
 plot1 <- ggplot(Median.age.males_2023_11, aes(x = life.exp1, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Life expectancy at birth in males (New: Median.age..males)")
+  labs(y = "Regions", x = "Median age for males")
 
 # Boxplot for Median.age..females
 Median.age..females_2023 <- dataset$Median.age..females[dataset$Year == 2023]
@@ -195,7 +195,7 @@ mor.both1 <- mor.both1[order(mor.both1$Region), ]
 plot2 <- ggplot(mor.both1, aes(x = Mortality, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Life expectancy at birth in females (New:Median.age..females)")
+  labs(y = "Regions", x = "Median age for females")
 
 library(gridExtra)
 grid.arrange(plot1, plot2, nrow = 1, ncol = 2)
@@ -217,7 +217,7 @@ Infant.Mortality.Rate.Males_2023_11 <- Infant.Mortality.Rate.Males_2023_11[order
 plot3 <- ggplot(Infant.Mortality.Rate.Males_2023_11, aes(x = life.exp1, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Under age 5 mortality in males(New:Infant.Mortality.Rate..Males)")
+  labs(y = "Regions", x = "Infant mortality rate for males")
 
 #Boxplot for Infant.Mortality.Rate..Females
 Infant.Mortality.Rate..Females_2023 <- dataset$Infant.Mortality.Rate..Females[dataset$Year == 2023]
@@ -235,7 +235,7 @@ mor.both11 <- mor.both11[order(mor.both11$Region), ]
 plot4 <- ggplot(mor.both11, aes(x = Mortality, y = Region, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Regions", x = "Under age 5 mortality in females (New:Infant.Mortality.Rate..Females)")
+  labs(y = "Regions", x = "Infant mortality rate for females")
 
 library(gridExtra)
 grid.arrange(plot3, plot4, nrow = 1, ncol = 2)
@@ -246,90 +246,103 @@ grid.arrange(plot3, plot4, nrow = 1, ncol = 2)
 #Are the values of the individual variables comparatively homogeneous within the individual subregions and heterogeneous between different subregions? 
 #To answer this question, first analyse the variability of the values within the individual subregions and then compare the measures of central tendency of the individual variables between different subregions.
 #Compare the detailed difference between the regions Europe and Africa.
-
-europe_data <- data[data$Region == 'Europe',]
-unique_subregions <- unique(europe_data$Subregion)
-print(unique_subregions)
+# Assuming you have already loaded the necessary libraries
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
-mean_median_stddev_minimum_maximum_summary1 <- aggregate(Median.age..both.sexes ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Median.age..both.sexes <- as.numeric(europe_data$Median.age..both.sexes)
+mean_median_stddev_minimum_maximum_summary1 <- aggregate(Median.age..both.sexes ~ Subregion, data = europe_data, 
+                                                         FUN = function(x) c(mean = mean(x, na.rm = TRUE), 
+                                                                             median = median(x, na.rm = TRUE), 
+                                                                             stddev = sd(x, na.rm = TRUE), 
+                                                                             minimum = min(x, na.rm = TRUE), 
+                                                                             maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary1)
 
+
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Median.age..females <- as.numeric(europe_data$Median.age..females)
 mean_median_stddev_minimum_maximum_summary2 <- aggregate(Median.age..females ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary2)
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Median.age..males <- as.numeric(europe_data$Median.age..males)
 mean_median_stddev_minimum_maximum_summary3 <- aggregate(Median.age..males ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary3)
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Total.Fertility.Rate <- as.numeric(europe_data$Total.Fertility.Rate)
 mean_median_stddev_minimum_maximum_summary4 <- aggregate(Total.Fertility.Rate ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary4)
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Infant.Mortality.Rate..Both.Sexes <- as.numeric(europe_data$Infant.Mortality.Rate..Both.Sexes)
 mean_median_stddev_minimum_maximum_summary5 <- aggregate(Infant.Mortality.Rate..Both.Sexes ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary5)
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Infant.Mortality.Rate..Males <- as.numeric(europe_data$Infant.Mortality.Rate..Males)
 mean_median_stddev_minimum_maximum_summary6 <- aggregate(Infant.Mortality.Rate..Males ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary6)
 
 europe_subregions <- c('Southern Europe', 'Western Europe', 'Eastern Europe', 'Northern Europe')
-europe_data <- data[data$Region == 'Europe' & data$Subregion %in% europe_subregions, ]
+europe_data <- dataset[dataset$Region == 'Europe' & dataset$Subregion %in% europe_subregions, ]
+europe_data$Infant.Mortality.Rate..Females <- as.numeric(europe_data$Infant.Mortality.Rate..Females)
 mean_median_stddev_minimum_maximum_summary7 <- aggregate(Infant.Mortality.Rate..Females ~ Subregion, data = europe_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary7)
-
-
-
-africa_data <- data[data$Region == 'Africa',]
-unique_subregions <- unique(africa_data$Subregion)
-print(unique_subregions)
-
+#-----------------------------------------------------------------------------------------------------------------------------------
+africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Median.age..both.sexes <- as.numeric(africa_data$Median.age..both.sexes)
+mean_median_stddev_minimum_maximum_summary11 <- aggregate(Median.age..both.sexes ~ Subregion, data = africa_data, 
+                                                         FUN = function(x) c(mean = mean(x, na.rm = TRUE), 
+                                                                             median = median(x, na.rm = TRUE), 
+                                                                             stddev = sd(x, na.rm = TRUE), 
+                                                                             minimum = min(x, na.rm = TRUE), 
+                                                                             maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary11)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary1 <- aggregate(Median.age..both.sexes ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary1)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Median.age..females <- as.numeric(africa_data$Median.age..females)
+mean_median_stddev_minimum_maximum_summary22 <- aggregate(Median.age..females ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary22)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary2 <- aggregate(Median.age..females ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary2)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Median.age..males <- as.numeric(africa_data$Median.age..males)
+mean_median_stddev_minimum_maximum_summary33 <- aggregate(Median.age..males ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary33)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary3 <- aggregate(Median.age..males ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary3)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Total.Fertility.Rate <- as.numeric(africa_data$Total.Fertility.Rate)
+mean_median_stddev_minimum_maximum_summary44 <- aggregate(Total.Fertility.Rate ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary44)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary4 <- aggregate(Total.Fertility.Rate ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary4)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Infant.Mortality.Rate..Both.Sexes <- as.numeric(africa_data$Infant.Mortality.Rate..Both.Sexes)
+mean_median_stddev_minimum_maximum_summary55 <- aggregate(Infant.Mortality.Rate..Both.Sexes ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary55)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary5 <- aggregate(Infant.Mortality.Rate..Both.Sexes ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary5)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Infant.Mortality.Rate..Males <- as.numeric(africa_data$Infant.Mortality.Rate..Males)
+mean_median_stddev_minimum_maximum_summary66 <- aggregate(Infant.Mortality.Rate..Males ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary66)
 
 africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary6 <- aggregate(Infant.Mortality.Rate..Males ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary6)
-
-africa_subregions <- c('Northern Africa', 'Middle Africa',   'Western Africa',  'Southern Africa', 'Eastern Africa')
-africa_data <- data[data$Region == 'Africa' & data$Subregion %in% africa_subregions, ]
-mean_median_stddev_minimum_maximum_summary7 <- aggregate(Infant.Mortality.Rate..Females ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
-print(mean_median_stddev_minimum_maximum_summary7)
+africa_data <- dataset[dataset$Region == 'Africa' & dataset$Subregion %in% africa_subregions, ]
+africa_data$Infant.Mortality.Rate..Females <- as.numeric(africa_data$Infant.Mortality.Rate..Females)
+mean_median_stddev_minimum_maximum_summary77 <- aggregate(Infant.Mortality.Rate..Females ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
+print(mean_median_stddev_minimum_maximum_summary77)
 #----------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 
