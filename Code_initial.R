@@ -343,34 +343,47 @@ africa_data$Infant.Mortality.Rate..Females <- as.numeric(africa_data$Infant.Mort
 mean_median_stddev_minimum_maximum_summary77 <- aggregate(Infant.Mortality.Rate..Females ~ Subregion, data = africa_data, FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE), stddev = sd(x, na.rm = TRUE), minimum = min(x, na.rm = TRUE), maximum = max(x, na.rm = TRUE)))
 print(mean_median_stddev_minimum_maximum_summary77)
 #----------------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------- 
 
-
-
+#For Europe Region-----------------------------------------------------------------------------------------------------------------------
 #Boxplot for Median.age..both.sexes
-data_mor_1 <- data.frame(Region = data[ data$Year == 2023 & data$Region == 'Europe', 'Region'],
-                       Subregion = data[ data$Year == 2023 & data$Region == 'Europe', 'Subregion'],
-                       Median.age..both.sexes = data[ data$Year == 2023 & data$Region == 'Europe', 'Median.age..both.sexes'])
-
-data_mor_1 <- data_mor_1[order(data_mor_1$Region, data_mor_1$Subregion), ]
-data_mor_1$Subregion <- factor(data_mor_1$Subregion, levels = rev(unique(data_mor_1$Subregion)), ordered = TRUE)
-ggplot(data_mor_1, aes(Median.age..both.sexes, Subregion, fill=Region)) + geom_boxplot() + coord_flip() + labs(y= "Subregions")
-
-
-
-
+data_mor_1 <- dataset[dataset$Year == 2023 & dataset$Region == 'Europe', ]
+data_mor_1$Median.age..both.sexes <- as.numeric(data_mor_1$Median.age..both.sexes)
+library(ggplot2)
+ggplot(data_mor_1, aes(y = Subregion, x = Median.age..both.sexes, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Subregions", x = "Median age (both sexes)")
 
 
 #Boxplot for Infant.Mortality.Rate..Both.Sexes
-data_exp <- data.frame(Region = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Region'],
-                       Subregion = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Subregion'],
-                       Life.Expectancy.at.Birth.Both.Sexes = census2002_2022[ census2002_2022$Year == 2022 & census2002_2022$Region == 'Asia', 'Life.Expectancy.at.Birth..Both.Sexes'])
+data_mor_11 <- dataset[dataset$Year == 2023 & dataset$Region == 'Europe', ]
+data_mor_11$Infant.Mortality.Rate..Both.Sexes <- as.numeric(data_mor_11$Infant.Mortality.Rate..Both.Sexes)
+library(ggplot2)
+ggplot(data_mor_11, aes(y = Subregion, x = Infant.Mortality.Rate..Both.Sexes, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Subregions", x = "Infant mortality rate (both sexes)")
 
-data_exp <- data_exp[order(data_exp$Region, data_exp$Subregion), ]
-data_exp$Subregion <- factor(data_exp$Subregion, levels = rev(unique(data_exp$Subregion)), ordered = TRUE)
-ggplot(data_exp, aes(Life.Expectancy.at.Birth.Both.Sexes, Subregion, fill=Region)) + geom_boxplot() + coord_flip()+ labs(y= "Subregions")
+#For Africa Region-----------------------------------------------------------------------------------------------------------------------
+#Boxplot for Median.age..both.sexes
+data_mor_2 <- dataset[dataset$Year == 2023 & dataset$Region == 'Africa', ]
+data_mor_2$Median.age..both.sexes <- as.numeric(data_mor_2$Median.age..both.sexes)
+library(ggplot2)
+ggplot(data_mor_2, aes(y = Subregion, x = Median.age..both.sexes, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Subregions", x = "Median age (both sexes)")
 
 
-
+#Boxplot for Infant.Mortality.Rate..Both.Sexes
+data_mor_22 <- dataset[dataset$Year == 2023 & dataset$Region == 'Africa', ]
+data_mor_22$Infant.Mortality.Rate..Both.Sexes <- as.numeric(data_mor_22$Infant.Mortality.Rate..Both.Sexes)
+library(ggplot2)
+ggplot(data_mor_22, aes(y = Subregion, x = Infant.Mortality.Rate..Both.Sexes, fill = Region)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "Subregions", x = "Infant mortality rate (both sexes)")
 
 #............................................................................................................................................
 #..................3: Bivariate correlation
