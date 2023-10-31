@@ -353,7 +353,7 @@ library(ggplot2)
 ggplot(data_mor_1, aes(y = Subregion, x = Median.age..both.sexes, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Subregions", x = "Median age (both sexes)")
+  labs(y = "Subregions", x = "Median age for both sexes")
 
 
 #Boxplot for Infant.Mortality.Rate..Both.Sexes
@@ -363,7 +363,7 @@ library(ggplot2)
 ggplot(data_mor_11, aes(y = Subregion, x = Infant.Mortality.Rate..Both.Sexes, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Subregions", x = "Infant mortality rate (both sexes)")
+  labs(y = "Subregions", x = "Infant mortality rate for both sexes")
 
 #For Africa Region-----------------------------------------------------------------------------------------------------------------------
 #Boxplot for Median.age..both.sexes
@@ -373,7 +373,7 @@ library(ggplot2)
 ggplot(data_mor_2, aes(y = Subregion, x = Median.age..both.sexes, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Subregions", x = "Median age (both sexes)")
+  labs(y = "Subregions", x = "Median age for both sexes")
 
 
 #Boxplot for Infant.Mortality.Rate..Both.Sexes
@@ -383,7 +383,7 @@ library(ggplot2)
 ggplot(data_mor_22, aes(y = Subregion, x = Infant.Mortality.Rate..Both.Sexes, fill = Region)) +
   geom_boxplot() +
   coord_flip() +
-  labs(y = "Subregions", x = "Infant mortality rate (both sexes)")
+  labs(y = "Subregions", x = "Infant mortality rate for both sexes")
 
 #............................................................................................................................................
 #..................3: Bivariate correlation
@@ -449,29 +449,34 @@ corrplot(cor_matrix_spearman, method = "color", type = "upper",
          tl.cex = 0.8,
          title = "Spearman Correlation Heatmap")
 
-######################################################################################
-data <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv", header = TRUE)
-columns_to_convert <- c("Median.age..both.sexes", "Median.age..females", "Median.age..males", "Total.Fertility.Rate", "Infant.Mortality.Rate..Both.Sexes", "Infant.Mortality.Rate..Males", "Infant.Mortality.Rate..Females")
-data[columns_to_convert] <- lapply(data[columns_to_convert], as.integer)
-write.csv(data, "D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023_1.csv", row.names = FALSE)
-
+######################################################################################----------------------------------------
 #.........4: comparing 2003 with 2023
-Country <- data$Country
-Subregion <- data$Subregion
+# Convert Median.age..both.sexes to numeric
+dataset$Median.age..both.sexes <- as.numeric(dataset$Median.age..both.sexes)
+
+Country <- dataset$Country
+Subregion <- dataset$Subregion
 
 #Median.age..both.sexes 2003 vs 2023
-data_fert <- dcast(data, Country + Subregion  + Region ~ factor(Year), value.var="Median.age..both.sexes")
+data_fert <- dcast(dataset, Country + Subregion  + Region ~ factor(Year), value.var="Median.age..both.sexes")
 data_fert <- data_fert[order(data_fert$Region, data_fert$Subregion), ]
 data_fert$Subregion <- factor(data_fert$Subregion, levels = rev(unique(data_fert$Subregion)), ordered = TRUE)
+
+library(ggplot2)
 ggplot(data=data_fert, mapping = aes(x=`2003`, y=`2023`)) +
   geom_point() + facet_wrap(. ~ Subregion) + 
   geom_abline()
 
 
 #Infant.Mortality.Rate..Both.Sexes 2003 vs 2023
-data_life_exp <- dcast(data, Country + Subregion + Region ~ factor(Year), value.var="Infant.Mortality.Rate..Both.Sexes")
-data_life_exp <- data_life_exp[order(data_life_exp$Region, data_life_exp$Subregion), ]
-data_life_exp$Subregion <- factor(data_life_exp$Subregion, levels = rev(unique(data_life_exp$Subregion)), ordered = TRUE)
-ggplot(data=data_life_exp, mapping = aes(x=`2003`,y=`2023`)) +
+# Convert Infant.Mortality.Rate..Both.Sexes to numeric
+dataset$Infant.Mortality.Rate..Both.Sexes <- as.numeric(dataset$Infant.Mortality.Rate..Both.Sexes)
+#Infant.Mortality.Rate..Both.Sexes 2003 vs 2023
+data_fert1 <- dcast(dataset, Country + Subregion  + Region ~ factor(Year), value.var="Infant.Mortality.Rate..Both.Sexes")
+data_fert1 <- data_fert1[order(data_fert1$Region, data_fert1$Subregion), ]
+data_fert1$Subregion <- factor(data_fert1$Subregion, levels = rev(unique(data_fert1$Subregion)), ordered = TRUE)
+
+library(ggplot2)
+ggplot(data=data_fert1, mapping = aes(x=`2003`, y=`2023`)) +
   geom_point() + facet_wrap(. ~ Subregion) + 
   geom_abline()
