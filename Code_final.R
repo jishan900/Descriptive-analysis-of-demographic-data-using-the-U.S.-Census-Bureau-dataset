@@ -35,7 +35,7 @@ sd.v <- sd(Median.age.both_2023, na.rm = T)
 print(sd.v)
 abline(v = mean(Median.age.both_2023, na.rm = T), col="red", lwd=2)
 abline(v = median(Median.age.both_2023, na.rm = T), col="blue", lwd=2)
-legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, cex=1.0)
+legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, cex=0.9)
 
 
 #Histogram of Median.age..females in 2023
@@ -52,7 +52,7 @@ sd.v1 <- sd(Median.age.females_2023, na.rm = T)
 print(sd.v1)
 abline(v = mean(Median.age.females_2023, na.rm = T), col="red", lwd=2)
 abline(v = median(Median.age.females_2023, na.rm = T), col="blue", lwd=2)
-legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, cex=1.0)
+legend(x="topright", legend=c("Mean", "Median"), col=c("red", "blue"), lty=1:1, cex=0.9)
 
 
 #Histogram of Median.age..males in 2023
