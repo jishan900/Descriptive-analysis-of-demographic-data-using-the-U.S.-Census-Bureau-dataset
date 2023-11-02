@@ -466,8 +466,8 @@ cor_matrix_spearman <- cor(correlation_data, method = "spearman", use = "complet
 corrplot(cor_matrix_spearman, method = "color", type = "upper",
          tl.col = "black", tl.srt = 45,
          addCoef.col = "black",
-         tl.cex = 0.8,
-         title = "Spearman Correlation Heatmap")
+         tl.cex = 0.8)#,
+        # title = "Spearman Correlation Heatmap")
 
 ######################################################################################----------------------------------------
 #.........4: comparing 2003 with 2023
