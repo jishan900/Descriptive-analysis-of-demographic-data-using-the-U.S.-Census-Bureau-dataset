@@ -442,8 +442,8 @@ cor_matrix <- cor(correlation_data, use = "complete.obs")
 corrplot(cor_matrix, method = "color", type = "upper", 
          tl.col = "black", tl.srt = 45, 
          addCoef.col = "black", 
-         tl.cex = 0.8, 
-         title = "Pearson Correlation Heatmap")
+         tl.cex = 0.8)#, 
+         #title = "Pearson Correlation Heatmap")
 
 
 # Load the corrplot library if not already loaded
