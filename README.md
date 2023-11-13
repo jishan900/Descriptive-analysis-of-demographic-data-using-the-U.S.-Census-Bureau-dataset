@@ -12,3 +12,5 @@ From the year 2003 and 2023, countries are divided into the five regions and twe
 # Statistical Methods
 In this section, several statistical methods are represented. The information was analyzed with R, version 4.1.1, which was made by the R Development Core Team. In addition, R packages, including ggplot2, gridExtra, reshape2, and ggpubr are used for data analysis, calculations, and visualizations.
 
+1. Mean, 2. Median, 3. Pearson Correlation Coefficient, 4. Variance and Standard Deviation, 5. Histogram, 6. Scatterplot, 7. Boxplot
+
