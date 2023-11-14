@@ -20,7 +20,7 @@ In this section, all seven variables such as ‘median age for both sexes’, �
 
 ![Untitled](https://github.com/jishan900/Descriptive-analysis-of-demographic-data-using-the-U.S.-Census-Bureau-dataset/assets/32738421/742523bf-ab32-4df7-a3b0-4c5d7911479b)
 
-
+![Untitled](https://github.com/jishan900/Descriptive-analysis-of-demographic-data-using-the-U.S.-Census-Bureau-dataset/assets/32738421/ff8ba8e1-ac6b-49ac-9665-aebd70eb724c)
 
 
 
