@@ -16,6 +16,7 @@ In this section, several statistical methods are represented. The information wa
 
 # Statistical Analysis
 In this section, all seven variables such as ‘median age for both sexes’, ‘median age for males’, ‘median age for females’, ‘total fertility rate’, ‘infant mortality rate for both sexes’, ‘infant mortality rate for males’, and ‘infant mortality rate for females’ are applied for the year 2023. In the provided Excel dataset, those variables exist in the character mode. For the purpose of data analysis, those variables should be converted from character mode to numeric mode. Finally, in the last subsection, a comparison between the year 2003 and 2023 is shown.  
+![Untitled](https://github.com/jishan900/Descriptive-analysis-of-demographic-data-using-the-U.S.-Census-Bureau-dataset/assets/32738421/4490aa64-d34b-4764-9560-c0654500f0b0)
 
 
 
