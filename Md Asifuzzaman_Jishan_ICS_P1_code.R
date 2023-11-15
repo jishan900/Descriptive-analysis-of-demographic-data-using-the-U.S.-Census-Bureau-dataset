@@ -9,6 +9,7 @@ library(reshape2)
 dataset <- read.csv("D:/Germany/Study Files-TUD/TU Dortmund/--------Semester-8-Winter Term--------2023-2024/ICS/2023/Report-1/census2003_2023.csv")
 head(dataset)
 dataset
+clean_data <- na.omit(dataset)
 nrow(dataset)
 ncol(dataset)
 summary(dataset)
